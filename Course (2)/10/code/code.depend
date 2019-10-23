@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1525614954 source:c:\users\almaz\desktop\gulnur_kurs\code\main.cpp
+	<fstream>
+	<string>
+	<iostream>
+	<sstream>
+	<windows.h>
+
+1526566521 source:c:\users\almaz\desktop\учеба\ОП\курсачи\gulnur_kurs\code\main.cpp
+	<fstream>
+	<string>
+	<iostream>
+	<sstream>
+	<windows.h>
+

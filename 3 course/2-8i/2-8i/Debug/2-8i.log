@@ -1,0 +1,5 @@
+﻿  main.cpp
+c:\users\almaz\desktop\2-8i\2-8i\main.cpp(22): warning C4156: deletion of an array expression without using the array form of 'delete'; array form substituted
+c:\users\almaz\desktop\2-8i\2-8i\main.cpp(22): warning C4154: deletion of an array expression; conversion to pointer supplied
+  2-8i.vcxproj -> C:\Users\almaz\Desktop\2-8i\Debug\2-8i.exe
+  2-8i.vcxproj -> C:\Users\almaz\Desktop\2-8i\Debug\2-8i.pdb (Full PDB)

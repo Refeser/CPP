@@ -1,0 +1,62 @@
+/*Задание: создать любую программу, используя объектно-ориентированное программирование.*/
+/*Вывод этого ли года автомобиль(2018) и максимальная скорость больше или меньше 300*/
+#include <string>
+#include <iostream>
+using namespace std;
+
+class Auto
+{
+private:
+	int year, max_sk;
+	string names;
+public:
+	void znach(int v_year, int v_max_sk)
+	{
+		year = v_year;
+		max_sk = v_max_sk;
+	}
+	void name(string v_name)
+	{
+		names = v_name;
+	}
+	void god()
+	{
+		if (year == 2018)
+			cout<<"Автомобиль "<<names<<" этого года"<<endl;
+		else
+			cout<<"Автомобиль "<<names<<" не этого года"<<endl;
+	}
+	void skor()
+	{
+		if (max_sk>300)
+			cout<<"У автомобиля "<<names<<" максимальная скорость больше 300"<<endl;
+		else
+			cout<<"У автомобиля "<<names<<" максимальная скорость меньше 300"<<endl;
+	}
+};
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+
+	Auto BMW;
+	BMW.znach(2015, 450);
+	BMW.name("BMW");
+	BMW.god();
+	BMW.skor();
+	cout << endl;
+	Auto Mercedes;
+	Mercedes.znach(2018, 520);
+	Mercedes.name("Mercedes");
+	Mercedes.god();
+	Mercedes.skor();
+	cout << endl;
+	Auto OKA;
+	OKA.znach(2005, 140);
+	OKA.name("OKA");
+	OKA.god();
+	OKA.skor();
+	cout << endl;
+	cin.get();
+	return 0;
+}

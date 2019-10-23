@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\almaz\desktop\test\test\main.cpp(12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\almaz\desktop\test\test\main.cpp(34): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\almaz\desktop\test\test\main.cpp(35): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Test.vcxproj -> C:\Users\almaz\Desktop\Test\Debug\Test.exe
+  Test.vcxproj -> C:\Users\almaz\Desktop\Test\Debug\Test.pdb (Full PDB)

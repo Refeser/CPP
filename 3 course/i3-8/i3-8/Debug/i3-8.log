@@ -1,0 +1,5 @@
+﻿  Source.cpp
+c:\users\almaz\desktop\i3-8\i3-8\source.cpp(71): warning C4101: 'kol': unreferenced local variable
+c:\users\almaz\desktop\i3-8\i3-8\source.cpp(72): warning C4101: 'n': unreferenced local variable
+  i3-8.vcxproj -> C:\Users\almaz\Desktop\i3-8\Debug\i3-8.exe
+  i3-8.vcxproj -> C:\Users\almaz\Desktop\i3-8\Debug\i3-8.pdb (Full PDB)

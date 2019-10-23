@@ -1,0 +1,129 @@
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <windows.h>
+
+using namespace std;
+
+struct shkola
+{
+    string fio;
+    string Nklass;
+    string Bklass;
+};
+void spisok_uchenikov (int kolvozn, shkola tz[]);
+void kolvo_uchenikov (int kolvozn, shkola tz[]);
+
+int main()
+{
+	ifstream f;  /* ссылка на входной файл */
+	char n;   /* номер пункта меню */
+	int i;
+	char sl;
+	string sl1;
+	SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
+	SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
+	f.open("shkola.txt");
+	if (!f.is_open())
+	{
+		cout << "Файл не может быть открыт!\n";
+		cin.get();
+		return 1;
+	}
+	else if (!f.eof())
+	{
+		shkola tz[88];
+		for (i = 0; f.good();i++)
+		{
+			if ((sl=f.get())=='\n'&&i!=0)
+			getline(f, tz[i].fio,',');
+			else
+			{
+				tz[i].fio += sl;
+				getline(f, sl1, ',');
+				tz[i].fio += sl1;
+			}
+			f  >> tz[i].Nklass;
+			if ((sl = f.get()) == ' ')
+			getline(f, tz[i].Bklass,'.');
+			cout << tz[i].fio<<" "<< tz[i].Nklass <<" "<< tz[i].Bklass <<" "<<endl;
+		}
+
+		int kolvozn = i - 1;
+		do
+		{
+			cout << "========================================================"<<endl;
+			cout << "Выберите номер пункта меню:"<<endl;
+			cout << "1 - список учеников заданного класса" << endl;
+			cout << "2 - кол-во учеников в данном классе и параллельных классах"<<endl;
+			cout << "3 - выход"<<endl;
+			cout << "------------------------------------------------------"<<endl;
+			n=cin.get();
+			cin.sync();
+			switch (n)
+			{
+			case '1': spisok_uchenikov(kolvozn,tz); break;
+			case '2': kolvo_uchenikov(kolvozn,tz); break;
+			case '3': break;
+			default: cout << "\nНужно вводить номер пункта от 1 до 4";
+			}
+			if (n != '3')
+			{
+				cout << "\nДля продолжения нажмите любую клавишу";
+				cin.get();
+			}
+		} while (n != '3');
+		f.close();
+	}
+	else
+	cout << "Файл пуст!\n";
+	//cin.get();
+	return 0;
+}
+
+void spisok_uchenikov (int kolvozn, shkola tz[])
+{
+	int i = 0, n=0;
+	string klassN, klassB;
+	cout<<"Введите № класса: "<<endl;
+	getline(cin, klassN);
+	cout<<"Введите букву класса: "<<endl;
+	getline(cin, klassB);
+	cout << "№ Фамилия Имя              " << endl;
+    cout << "---------------------------" << endl;
+	while (i != kolvozn)
+    {
+			if ((tz[i].Nklass == klassN)&&(tz[i].Bklass == klassB))
+			cout <<++n <<" "<< tz[i].fio <<" "<<endl;
+			i++;
+    }
+}
+
+void kolvo_uchenikov (int kolvozn, shkola tz[])
+{
+    string klass;
+    int a=0,b=0,v=0;
+    cout<<"Введите № класса: "<<endl;
+	getline(cin, klass);
+    int i=0;
+    while (i!=kolvozn)
+    {
+        if(tz[i].Nklass == klass)
+        {
+            if (tz[i].Bklass == "А")
+                a++;
+            else
+                if (tz[i].Bklass == "Б")
+                    b++;
+                else
+                    if (tz[i].Bklass == "В")
+                        v++;
+        }
+        i++;
+    }
+    cout<<"В классе "<<klass<<" А учатся "<<a<<" учеников."<<endl;
+    cout<<"В классе "<<klass<<" Б учатся "<<b<<" учеников."<<endl;
+    cout<<"В классе "<<klass<<" В учатся "<<v<<" учеников."<<endl;
+}
+

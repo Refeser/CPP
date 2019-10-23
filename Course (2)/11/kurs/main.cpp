@@ -1,0 +1,138 @@
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <windows.h>
+
+using namespace std;
+
+
+struct tovar		/* структура записи входного файла */
+{
+	string  shifr; /* шифр */
+	string  name; 	/* наименование  */
+	string  colvo;	/* кол-во товара */
+	string  price;	/* цена */
+};
+
+/* прототипы функций */
+void Dobavlenie(int kolvozn, tovar tz[]);
+void Vivod(int kolvozn, tovar tz[]);
+/*----------------------*/
+/*    главная функция   */
+/*----------------------*/
+
+int main()
+{
+	ifstream f;  /* ссылка на входной файл */
+	char n;   /* номер пункта меню */
+	int i;
+	char sl;
+	string sl1;
+	SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
+	SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
+	f.open("tovar.txt");
+	if (!f.is_open()) // если файл не открыт
+	{
+		cout << "Файл не может быть открыт!\n";
+		cin.get();
+		return 1;
+	}
+	else if (!f.eof())
+	{
+		tovar tz[88];
+		for (i = 0; f.good();i++)
+		{
+			if ((sl=f.get())=='\n'&&i!=0)
+			getline(f, tz[i].shifr,',');
+			else
+			{
+				tz[i].shifr += sl;
+				getline(f, sl1, ',');
+				tz[i].shifr += sl1;
+			}
+			f  >> tz[i].name >> tz[i].colvo >> tz[i].price;
+			if ((sl = f.get()) == ' ')
+			getline(f, tz[i].name,'.');
+			cout << tz[i].shifr<<" "<< tz[i].name <<" " << tz[i].colvo<<" "<< tz[i].price<<endl;
+		}
+
+		int kolvozn = i - 1;
+		do
+		{
+			cout << "========================================================"<<endl;
+			cout << "Выберите номер пункта меню:"<<endl;
+			cout << "1 - Добавление новой записи в конец файла" << endl;
+			cout << "2 - Печать данных"<<endl;
+			cout << "3 - Выход"<<endl;
+			cout << "------------------------------------------------------"<<endl;
+			n=cin.get();
+			cin.sync();
+			switch (n)
+			{
+            case '1': Dobavlenie(kolvozn,tz); break;
+			case '2': Vivod(kolvozn,tz); break;
+			case '3': break;
+			default: cout << "\nНужно вводить номер пункта от 1 до 3";
+			}
+			if (n != '3')
+			{
+				cout << "\nДля продолжения нажмите любую клавишу";
+				cin.get();
+			}
+		} while (n != '3');
+		f.close();
+	}
+	else
+	cout << "Файл пуст!\n";
+	//cin.get();
+	return 0;
+}
+
+void Dobavlenie(int kolvozn,tovar tz[])
+{
+	string s1;
+	ofstream fout; // открываем файл для добавления информации к концу файла
+    fout.open("tovar.txt", ios_base::app); // открываем файл для добавления информации к концу файла
+    getline(cin,s1);
+
+	fout<<endl<<s1;
+
+	fout.close();
+
+    cout<<"Запись в файл завершена";
+
+}
+
+void Vivod(int kolvozn, tovar tz[])
+{
+	ifstream f;
+	string sl1;
+    char sl;
+    int i=0, n=0;
+	f.open("tovar.txt");
+		for (i = 0; f.good();i++)
+		{
+			if ((sl=f.get())=='\n'&&i!=0)
+			getline(f, tz[i].shifr,',');
+			else
+			{
+				tz[i].shifr += sl;
+				getline(f, sl1, ',');
+				tz[i].shifr += sl1;
+			}
+			f  >> tz[i].name >> tz[i].colvo >> tz[i].price;
+			if ((sl = f.get()) == ' ')
+			getline(f, tz[i].name,'.');
+			if (n == 0)
+			{
+				cout << "№ Шифр   Н-ие  К-во Цена" << endl;
+				cout << "--------------------------------------------------" << endl;
+			}
+			cout << ++n << tz[i].shifr<<" "<< tz[i].name <<" " << tz[i].colvo<<" "<< tz[i].price<<endl;
+        }
+        f.close();
+	if (n == 0)  cout<<"\nИнформация о товарах отсутствует!";
+	else cout << "Вывод завершен";
+
+}

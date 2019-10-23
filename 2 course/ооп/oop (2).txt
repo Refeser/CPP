@@ -1,0 +1,75 @@
+/*Задание: создать любую программу, используя объектно-ориентированное программирование.*/
+/*Выводит истек ли срок годности и количество товара. Срок годности вводится с клавиатуры*/
+#include <string>
+#include <iostream>
+using namespace std;
+
+class Tovar
+{
+private:
+	int kolvo, srok_godnosti_god, srok_vipusk;
+	string imya;
+public:
+	void vvod(int kkolvo, int srok)
+	{
+		kolvo = kkolvo;
+		srok_godnosti_god = srok;
+	}
+	void tovar(string name)
+	{
+		imya = name;
+	}
+	void godnost()
+	{
+		if (srok_godnosti_god == 2018)
+			cout << "Срок годности " << imya << " истекает в этом году. Их " << kolvo << " штук" << endl;
+		else
+			if (srok_godnosti_god>2018)
+				cout << "Срок годности " << imya << " не истекает в этом году. Их " << kolvo << " штук" << endl;
+			else
+				cout << "Срок годности " << imya << " истек. Их " << kolvo << " штук" << endl;
+	}
+};
+
+int main()
+{
+	setlocale(LC_ALL, "Rus");
+	int srok;
+	Tovar hleb;
+	cout << "Введите год срока годности хлеба:" << endl;
+	cin >> srok;
+	hleb.vvod(50, srok);
+	hleb.tovar("хлеба");
+	hleb.godnost();
+	cout << "---------------------------------------------------------------------" << endl;
+	Tovar sir;
+	cout << "Введите год срока годности сыра:" << endl;
+	cin >> srok;
+	sir.vvod(34, srok);
+	sir.tovar("сыра");
+	sir.godnost();
+	cout << "---------------------------------------------------------------------" << endl;
+	Tovar baton;
+	cout << "Введите год срока годности батона:" << endl;
+	cin >> srok;
+	baton.vvod(62, srok);
+	baton.tovar("батона");
+	baton.godnost();
+	cout << "---------------------------------------------------------------------" << endl;
+	Tovar pech;
+	cout << "Введите год срока годности печенек:" << endl;
+	cin >> srok;
+	pech.vvod(98, srok);
+	pech.tovar("печенек");
+	pech.godnost();
+	cout << "---------------------------------------------------------------------" << endl;
+	Tovar mol;
+	cout << "Введите год срока годности молока:" << endl;
+	cin >> srok;
+	mol.vvod(86, srok);
+	mol.tovar("молока");
+	mol.godnost();
+	cout << "---------------------------------------------------------------------" << endl;
+	cin.get();
+	return 0;
+}

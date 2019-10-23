@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1525613607 source:c:\users\almaz\desktop\ilyas_kurs\kursovaya\main.cpp
+	<fstream>
+	<string>
+	<iostream>
+	<sstream>
+	<windows.h>
+
+1526806906 source:c:\users\almaz\desktop\учеба\ОП\курсачи\ilyas_kurs\kursovaya\main.cpp
+	<fstream>
+	<string>
+	<iostream>
+	<sstream>
+	<windows.h>
+

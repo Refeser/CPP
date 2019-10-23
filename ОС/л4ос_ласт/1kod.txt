@@ -1,0 +1,153 @@
+#include "windows.h"
+/* объявление функции окна       */
+LRESULT CALLBACK WindowFunc(HWND, UINT, WPARAM, LPARAM);
+char szWinName[] = "Lab4Group4233Var22Dallas";           // Имя "класса" окна 			
+														 /*       Главная функция          */
+int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst,
+	LPSTR lpszArgs, int nWinMode)
+{
+	HWND hWnd;                          // дескриптор окна  
+	MSG msg;                            // сообщение        
+	WNDCLASSEX wcl;                     // "класс" окна     							/*  Определение "класса" (стиля) окна */
+	wcl.hInstance = hThisInst; /*дескриптор данного экземпляра*/
+	wcl.lpszClassName = (LPCWSTR)szWinName;   // имя "класса" окна  
+	wcl.lpfnWndProc = WindowFunc;       // функция окна
+	wcl.style = 0;                      // стиль по умолчанию
+	wcl.cbSize = sizeof(WNDCLASSEX);    // размер структуры
+	wcl.hIcon = LoadIcon(NULL, IDI_EXCLAMATION); //больш.иконка
+	wcl.hIconSm = LoadIcon(NULL, IDI_APPLICATION); // малая иконка
+	wcl.hCursor = LoadCursor(NULL, IDC_APPSTARTING); //форма курсора
+	wcl.lpszMenuName = NULL;      // меню не используется
+	wcl.cbClsExtra = 0;           // дополнит. информации нет
+	wcl.cbWndExtra = 0;
+	/* Фон окна задается белым   */
+	wcl.hbrBackground = (HBRUSH)GetStockObject(GRAY_BRUSH);
+	/* Регистрация "класса" окна */
+	if (!RegisterClassEx(&wcl))  return 0;
+	/*     Создание окна         */
+	hWnd = CreateWindowEx
+	(0, (LPCWSTR)szWinName,      	// имя "класса" окна
+		(LPCWSTR)"Videneeva Yulia 4233", 			// заголовок
+		WS_OVERLAPPED | WS_SYSMENU,   // стандартное окно
+		100,         // координата Х - по умолчанию
+		100,         // координата Y - по умолчанию
+		1024,         // ширина       - по умолчанию
+		512,         // высота       - по умолчанию
+		HWND_DESKTOP,          // родительского окна нет
+		NULL,                  // меню нет  
+		hThisInst, // дескриптор данного экземпляра приложения
+		NULL                  // дополнительных аргументов нет
+	);
+	/*     Отображение окна       */
+	ShowWindow(hWnd, nWinMode);
+	/*     Цикл сообщений        */
+	while (GetMessage(&msg, NULL, 0, 0))
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+	return msg.wParam;
+}
+/*---------------------------------------------*/
+/*               Функция  окна                 */
+/*---------------------------------------------*/
+/* Эту функцию вызывает Windows и передает ей  */
+/* на обработку сообщения из очереди сообщений */
+/*---------------------------------------------*/
+HBRUSH hbrush_1, hbrush_2, hbrush_3, hbrush_4, hbrush_5;
+HPEN hpen_1, hpen_2, hpen_3, hpen_4, hpen_5;
+HWND hWnd;
+HDC hdc;
+int xPosR = -1, yPosR = -1;
+LRESULT CALLBACK WindowFunc(HWND hWnd, UINT message,
+	WPARAM wParam, LPARAM lParam)
+{
+	char str[50] = "Показать координаты?";
+	int xPos, yPos, res;
+	PAINTSTRUCT paintstruct;
+	switch (message)
+	{
+	case WM_LBUTTONDOWN:
+		xPos = LOWORD(lParam);
+		yPos = HIWORD(lParam);
+		res = MessageBox(hWnd, (LPCWSTR)str, (LPCWSTR)"Показать координаты?", MB_YESNO);
+		if (res == IDYES)
+		{
+			wsprintf((LPWSTR)str, (LPCWSTR)"Координаты курсора мыши:\n x=%d; y=%d", xPos, yPos);
+			MessageBox
+			(hWnd, (LPCWSTR)str, (LPCWSTR)"Левая кнопка", MB_OK | MB_ICONINFORMATION);
+		}
+		break;
+	case WM_RBUTTONDOWN:
+		xPosR = LOWORD(lParam);
+		yPosR = HIWORD(lParam);
+
+		InvalidateRect(hWnd, NULL, 1);
+		break;
+	case WM_PAINT: {
+		hbrush_1 = CreateSolidBrush(RGB(0, 0, 0));
+		hbrush_2 = CreateHatchBrush(HS_VERTICAL, RGB(255, 255, 255));
+		hbrush_3 = CreateSolidBrush(RGB(255, 255, 255));
+		hbrush_4 = CreateHatchBrush(HS_HORIZONTAL, RGB(231, 213, 134));
+		hbrush_5 = CreateHatchBrush(HS_BDIAGONAL, RGB(255, 0, 123));
+		hpen_1 = CreatePen(PS_DASH, 2, RGB(255, 0, 234));
+		hpen_2 = CreatePen(PS_SOLID, 3, RGB(0, 255, 255));
+		hpen_3 = CreatePen(PS_DOT, 2, RGB(0, 125, 212));
+		hpen_4 = CreatePen(PS_SOLID, 1, RGB(220, 115, 35));
+		hpen_5 = CreatePen(PS_DASH, 2, RGB(0, 212, 137));
+		hdc = BeginPaint(hWnd, &paintstruct);
+		SelectObject(hdc, hpen_1);
+		Rectangle(hdc, 11, 11, 56, 56);
+		SelectObject(hdc, hbrush_1);
+		Rectangle(hdc, 10, 10, 55, 55);
+		SelectObject(hdc, hpen_2);
+		Rectangle(hdc, 31, 31, 67, 67);
+		SelectObject(hdc, hbrush_2);
+		Rectangle(hdc, 30, 30, 66, 66);
+		SelectObject(hdc, hpen_3);
+		Ellipse(hdc, 101, 101, 123, 123);
+		SelectObject(hdc, hbrush_3);
+		Ellipse(hdc, 100, 100, 122, 122);
+		SelectObject(hdc, hpen_4);
+		Ellipse(hdc, 252, 252, 182, 182);
+		SelectObject(hdc, hbrush_4);
+		Ellipse(hdc, 251, 251, 181, 181);
+		SelectObject(hdc, hpen_5);
+		Ellipse(hdc, 345, 345, 455, 455);
+		SelectObject(hdc, hbrush_5);
+		Ellipse(hdc, 344, 344, 454, 454);
+		SetTextColor(hdc, RGB(255, 0, 123));
+		SetBkColor(hdc, RGB(123, 255, 0));
+		TextOut(hdc, 43, 34, (LPCWSTR)"Виденеева Юлия 4233", 19);
+		if (xPosR >= 0)
+		{
+			char text[] = "Правая кнопка";
+			SetTextColor(hdc, RGB(255, 0, 150));
+			SetBkColor(hdc, RGB(136, 45, 0));
+			TextOut(hdc, xPosR, yPosR, (LPCWSTR)text, 13);
+		}
+
+
+		EndPaint(hWnd, &paintstruct);
+		DeleteObject(hbrush_1);
+		DeleteObject(hbrush_2);
+		DeleteObject(hbrush_3);
+		DeleteObject(hbrush_4);
+		DeleteObject(hbrush_5);
+		DeleteObject(hpen_1);
+		DeleteObject(hpen_3);
+		DeleteObject(hpen_2);
+		DeleteObject(hpen_4);
+		DeleteObject(hpen_5);
+		break;
+	}
+	case WM_DESTROY:         /* "завершить программу" */
+		PostQuitMessage(0);
+		break;
+	default:
+		/* Остальные сообщения обрабатывать  */
+		/* операционной системе              */
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
+}

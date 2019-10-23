@@ -1,0 +1,241 @@
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <windows.h>
+
+using namespace std;
+
+struct sotrudniki
+{
+    string fio;
+    string god;
+    string doljnost;
+    string adres;
+    string fio_b;
+    string god_b;
+    string doljnost_b;
+    string adres_b;
+};
+
+void izmenenie_doljnosti_i_adresa (int kolvozn, sotrudniki tz[]);
+void iskluchenie_zapisi (int kolvozn, sotrudniki tz[]);
+void vivod_spiska (int kolvozn, sotrudniki tz[]) ;
+
+int main()
+{
+	ifstream f;  /* ссылка на входной файл */
+	ifstream F;
+	char n;   /* номер пункта меню */
+	int i;
+	char sl;
+	string sl1;
+	SetConsoleCP(1251);// установка кодовой страницы win-cp 1251 в поток ввода
+	SetConsoleOutputCP(1251); // установка кодовой страницы win-cp 1251 в поток вывода
+	f.open("sotrudniki.txt");
+	if (!f.is_open())
+	{
+		cout << "Файл не может быть открыт!\n";
+		cin.get();
+		return 1;
+	}
+	else if (!f.eof())
+	{
+		sotrudniki tz[88];
+		for (i = 0; f.good();i++)
+		{
+			if ((sl=f.get())=='\n'&&i!=0)
+			getline(f, tz[i].fio,',');
+			else
+			{
+				tz[i].fio += sl;
+				getline(f, sl1, ',');
+				tz[i].fio += sl1;
+			}
+			f  >> tz[i].god >> tz[i].doljnost;
+			if ((sl = f.get()) == ' ')
+			getline(f, tz[i].adres,'.');
+			cout << tz[i].fio<<" "<< tz[i].god <<" " << tz[i].doljnost<<" "<< tz[i].adres <<" "<<endl;
+		}
+		F.open("sotrudniki_buff.txt");
+		for (i = 0; F.good();i++)
+		{
+			if ((sl=F.get())=='\n'&&i!=0)
+			getline(F, tz[i].fio_b,',');
+			else
+			{
+				tz[i].fio_b += sl;
+				getline(F, sl1, ',');
+				tz[i].fio_b += sl1;
+			}
+			F  >> tz[i].god_b >> tz[i].doljnost_b;
+			if ((sl = F.get()) == ' ')
+			getline(F, tz[i].adres_b,'.');
+		}
+
+
+		int kolvozn = i - 1;
+		do
+		{
+			cout << "========================================================"<<endl;
+			cout << "Выберите номер пункта меню:"<<endl;
+			cout << "1 - изменить должность или домашний адрес сотрудника" << endl;
+			cout << "2 - исключить сотрудника из файла"<<endl;
+			cout << "3 - вывод списка сотрудников"<<endl;
+			cout << "4 - выход"<<endl;
+			cout << "------------------------------------------------------"<<endl;
+			n=cin.get();
+			cin.sync();
+			switch (n)
+			{
+			case '1': izmenenie_doljnosti_i_adresa(kolvozn,tz); break;
+			case '2': iskluchenie_zapisi(kolvozn,tz); break;
+			case '3': vivod_spiska (kolvozn,tz); break;
+			case '4': break;
+			default: cout << "\nНужно вводить номер пункта от 1 до 4";
+			}
+			if (n != '4')
+			{
+				cout << "\nДля продолжения нажмите любую клавишу";
+				cin.get();
+			}
+		} while (n != '4');
+		F.close();
+		f.close();
+	}
+	else
+	cout << "Файл пуст!\n";
+	//cin.get();
+	return 0;
+}
+
+void izmenenie_doljnosti_i_adresa (int kolvozn, sotrudniki tz[])
+{
+    int n=0, i=0, k=0;
+    string v_imya, v_izm;
+    cout<<"Введите Ф.И.О. сотрудника, должность или домашний адрес которого хотите изменить"<<endl;
+    getline (cin, v_imya);
+    cout<<"Введите новую должность или адрес: "<<endl;
+    getline(cin, v_izm);
+    while (i != kolvozn)
+    {
+        if (tz[i].fio == v_imya)
+        {
+            cout<< "Введите что именно вы хотите изменить:" <<endl
+               << "1. Должность сотрудника" <<endl
+               << "2. Домашний адрес сотрудника" <<endl;
+               cin>>k;
+               if (k==1)
+               {
+                   tz[i].doljnost = v_izm;
+                   cout<<"Должность изменена "<<endl;
+                   break;
+               }
+               else
+               {
+                   if (k==2)
+                   {
+                        tz[i].adres = v_izm;
+                        cout<<"Адрес изменен! "<<endl;
+                        break;
+                   }
+                   else
+                   {
+                    cout<<"Вы выбрали неверный пункт! "<<endl;
+                    break;
+                   }
+               }
+        }
+        i++;
+    }
+    i=0;
+    while(i!=kolvozn)
+    {
+        cout << tz[i].fio<<" "<< tz[i].god <<" " << tz[i].doljnost<<" "<< tz[i].adres <<" "<<endl;
+        i++;
+    }
+}
+
+void iskluchenie_zapisi (int kolvozn, sotrudniki tz[])
+{
+    string fio_udal;
+    int i=0;
+    cout<<"Введите ФИО сотрудника: "<<endl;
+    getline(cin,fio_udal);
+    fstream f;
+    fstream F;
+    F.open("sotrudniki_buff.txt", ios::out|ios::in|ios::trunc);
+    if(!F.is_open())
+    {
+        cout<<"Файл не может быть открыт!\n";
+    }
+    else
+    {
+        while (i!=kolvozn)
+        {
+            if (tz[i].fio != fio_udal)
+                F << tz[i].fio <<", "<< tz[i].god <<" "<< tz[i].doljnost <<" "<< tz[i].adres <<"."<<"\n";
+            i++;
+        }
+    }
+
+        F.close();
+
+        /*---------------------------------------------------------*/
+        i=0;
+        f.open("sotrudniki.txt", ios::out|ios::in|ios::trunc);
+    if(!f.is_open())
+    {
+        cout<<"Файл не может быть открыт!\n";
+    }
+    else
+    {
+        while (i!=kolvozn)
+        {
+            if (tz[i].fio_b != fio_udal)
+                f << tz[i].fio_b<<", "<< tz[i].god_b <<" "<< tz[i].doljnost_b <<" "<< tz[i].adres_b <<"."<<"\n";
+            i++;
+        }
+    }
+
+        f.close();
+
+        cout<<"Сотрудник "<<fio_udal<<" был удален из файла!"<<endl;
+
+}
+
+void vivod_spiska(int kolvozn, sotrudniki tz[])
+{
+    char sl;
+	string sl1;
+    ifstream f;
+	int i=0;
+    cout << "№ Фамилия И.О.     Год рождения Должность           Домашний адрес" << endl;
+    cout << "------------------------------------------------------------------" << endl;
+    f.open("sotrudniki.txt");
+	if (!f.is_open())
+	{
+		cout << "Файл не может быть открыт!\n";
+	}
+	else if (!f.eof())
+	{
+		sotrudniki tz[88];
+		for (i = 0; f.good();i++)
+		{
+			if ((sl=f.get())=='\n'&&i!=0)
+			getline(f, tz[i].fio,',');
+			else
+			{
+				tz[i].fio += sl;
+				getline(f, sl1, ',');
+				tz[i].fio += sl1;
+			}
+			f  >> tz[i].god >> tz[i].doljnost;
+			if ((sl = f.get()) == ' ')
+			getline(f, tz[i].adres,'.');
+			cout << tz[i].fio<<" "<< tz[i].god <<" " << tz[i].doljnost<<" "<< tz[i].adres <<" "<<endl;
+		}
+    }
+	f.close();
+}
+

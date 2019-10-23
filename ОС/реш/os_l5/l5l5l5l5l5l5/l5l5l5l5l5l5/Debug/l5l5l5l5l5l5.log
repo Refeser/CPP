@@ -1,0 +1,18 @@
+﻿  code7.cpp
+c:\users\almaz\desktop\лаб5\7\code7.cpp(16): error C2440: '=': cannot convert from 'char [6]' to 'LPCWSTR'
+  c:\users\almaz\desktop\лаб5\7\code7.cpp(16): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\almaz\desktop\лаб5\7\code7.cpp(37): error C2664: 'HWND CreateWindowExW(DWORD,LPCWSTR,LPCWSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)': cannot convert argument 2 from 'char [6]' to 'LPCWSTR'
+  c:\users\almaz\desktop\лаб5\7\code7.cpp(37): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\almaz\desktop\лаб5\7\code7.cpp(91): error C2065: 'ID_RECT': undeclared identifier
+c:\users\almaz\desktop\лаб5\7\code7.cpp(91): error C2131: expression did not evaluate to a constant
+  c:\users\almaz\desktop\лаб5\7\code7.cpp(91): note: failure was caused by non-constant arguments or reference to a non-constant symbol
+  c:\users\almaz\desktop\лаб5\7\code7.cpp(91): note: see usage of 'ID_RECT'
+c:\users\almaz\desktop\лаб5\7\code7.cpp(102): error C2664: 'BOOL Polygon(HDC,const POINT *,int)': cannot convert argument 3 from 'POINT [3]' to 'int'
+  c:\users\almaz\desktop\лаб5\7\code7.cpp(102): note: There is no context in which this conversion is possible
+c:\users\almaz\desktop\лаб5\7\code7.cpp(91): error C2051: case expression not constant
+  7.cpp
+c:\users\almaz\desktop\лаб5\7\7.cpp(16): error C2440: '=': cannot convert from 'char [6]' to 'LPCWSTR'
+  c:\users\almaz\desktop\лаб5\7\7.cpp(16): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\almaz\desktop\лаб5\7\7.cpp(37): error C2664: 'HWND CreateWindowExW(DWORD,LPCWSTR,LPCWSTR,DWORD,int,int,int,int,HWND,HMENU,HINSTANCE,LPVOID)': cannot convert argument 2 from 'char [6]' to 'LPCWSTR'
+  c:\users\almaz\desktop\лаб5\7\7.cpp(37): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+  Generating Code...

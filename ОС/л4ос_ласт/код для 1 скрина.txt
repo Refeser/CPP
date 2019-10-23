@@ -1,0 +1,97 @@
+#include "windows.h"
+/* объявление функции окна       */
+LRESULT CALLBACK WindowFunc(HWND, UINT, WPARAM, LPARAM);
+char szWinName[] = "Lab4Group4233Var22Dallas";           // Имя "класса" окна 			
+														 /*       Главная функция          */
+int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst,
+	LPSTR lpszArgs, int nWinMode)
+{
+	HWND hWnd;                          // дескриптор окна  
+	MSG msg;                            // сообщение        
+	WNDCLASSEX wcl;                     // "класс" окна     							/*  Определение "класса" (стиля) окна */
+	wcl.hInstance = hThisInst; /*дескриптор данного экземпляра*/
+	wcl.lpszClassName = (LPCWSTR)szWinName;   // имя "класса" окна  
+	wcl.lpfnWndProc = WindowFunc;       // функция окна
+	wcl.style = 0;                      // стиль по умолчанию
+	wcl.cbSize = sizeof(WNDCLASSEX);    // размер структуры
+	wcl.hIcon = LoadIcon(NULL, IDI_EXCLAMATION); //больш.иконка
+	wcl.hIconSm = LoadIcon(NULL, IDI_APPLICATION); // малая иконка
+	wcl.hCursor = LoadCursor(NULL, IDC_APPSTARTING); //форма курсора
+	wcl.lpszMenuName = NULL;      // меню не используется
+	wcl.cbClsExtra = 0;           // дополнит. информации нет
+	wcl.cbWndExtra = 0;
+	/* Фон окна задается белым   */
+	wcl.hbrBackground = (HBRUSH)GetStockObject(GRAY_BRUSH);
+	/* Регистрация "класса" окна */
+	if (!RegisterClassEx(&wcl))  return 0;
+	/*     Создание окна         */
+	hWnd = CreateWindowEx
+	(0, (LPCWSTR)szWinName,      	// имя "класса" окна
+		(LPCWSTR)"Videneeva Yulia 4233", 			// заголовок
+		WS_OVERLAPPED | WS_SYSMENU,   // стандартное окно
+		100,         // координата Х - по умолчанию
+		100,         // координата Y - по умолчанию
+		1024,         // ширина       - по умолчанию
+		512,         // высота       - по умолчанию
+		HWND_DESKTOP,          // родительского окна нет
+		NULL,                  // меню нет  
+		hThisInst, // дескриптор данного экземпляра приложения
+		NULL                  // дополнительных аргументов нет
+	);
+	/*     Отображение окна       */
+	ShowWindow(hWnd, nWinMode);
+	/*     Цикл сообщений        */
+	while (GetMessage(&msg, NULL, 0, 0))
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+	return msg.wParam;
+}
+/*---------------------------------------------*/
+/*               Функция  окна                 */
+/*---------------------------------------------*/
+/* Эту функцию вызывает Windows и передает ей  */
+/* на обработку сообщения из очереди сообщений */
+/*---------------------------------------------*/
+HBRUSH hbrush_1, hbrush_2, hbrush_3, hbrush_4, hbrush_5;
+HPEN hpen_1, hpen_2, hpen_3, hpen_4, hpen_5;
+HWND hWnd;
+HDC hdc;
+int xPosR = -1, yPosR = -1;
+LRESULT CALLBACK WindowFunc(HWND hWnd, UINT message,
+	WPARAM wParam, LPARAM lParam)
+{
+	char str[50] = "Показать координаты?";
+	int xPos, yPos, res;
+	PAINTSTRUCT paintstruct;
+	switch (message)
+	{
+	case WM_LBUTTONDOWN:
+		xPos = LOWORD(lParam);
+		yPos = HIWORD(lParam);
+		res = MessageBox(hWnd, (LPCWSTR)str, (LPCWSTR)"Показать координаты?", MB_YESNO);
+		if (res == IDYES)
+		{
+			wsprintf((LPWSTR)str, (LPCWSTR)"Координаты курсора мыши:\n x=%d; y=%d", xPos, yPos);
+			MessageBox
+			(hWnd, (LPCWSTR)str, (LPCWSTR)"Левая кнопка", MB_OK | MB_ICONINFORMATION);
+		}
+		break;
+	case WM_RBUTTONDOWN:
+		xPosR = LOWORD(lParam);
+		yPosR = HIWORD(lParam);
+
+		InvalidateRect(hWnd, NULL, 1);
+		break;
+
+	case WM_DESTROY:         /* "завершить программу" */
+		PostQuitMessage(0);
+		break;
+	default:
+		/* Остальные сообщения обрабатывать  */
+		/* операционной системе              */
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
+}

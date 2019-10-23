@@ -1,0 +1,7 @@
+﻿  main.cpp
+c:\users\almaz\desktop\testoop\testoop\main.cpp(38): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\almaz\desktop\testoop\testoop\main.cpp(39): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\almaz\desktop\testoop\testoop\main.cpp(64): warning C4553: '==': operator has no effect; did you intend '='?
+c:\users\almaz\desktop\testoop\testoop\main.cpp(71): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  testOOP.vcxproj -> C:\Users\almaz\Desktop\testOOP\Debug\testOOP.exe
+  testOOP.vcxproj -> C:\Users\almaz\Desktop\testOOP\Debug\testOOP.pdb (Full PDB)

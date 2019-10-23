@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\almaz\desktop\i2-8\i2-8\source.cpp(22): warning C4156: deletion of an array expression without using the array form of 'delete'; array form substituted
+c:\users\almaz\desktop\i2-8\i2-8\source.cpp(22): warning C4154: deletion of an array expression; conversion to pointer supplied
+LINK : fatal error LNK1168: cannot open C:\Users\almaz\Desktop\i2-8\Debug\i2-8.exe for writing

@@ -1,0 +1,12 @@
+#include "resource.h"
+IDR_MENU1 MENU DISCARDABLE 
+BEGIN
+    POPUP "&Фигуры"
+    BEGIN
+        MENUITEM "&Треугольники", 	ID_TREUG
+    END
+    POPUP "&Цвет"
+    BEGIN
+        MENUITEM "Красный",		ID_RED
+    END
+END

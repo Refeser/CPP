@@ -1,0 +1,11 @@
+﻿  Source.cpp
+c:\users\almaz\desktop\новая папка (2)\win32project1\win32project1\source.cpp(24): error C2065: 'IDR_MENU1': undeclared identifier
+c:\users\almaz\desktop\новая папка (2)\win32project1\win32project1\source.cpp(58): error C2065: 'IDM_START': undeclared identifier
+c:\users\almaz\desktop\новая папка (2)\win32project1\win32project1\source.cpp(64): error C2065: 'IDM_STOP': undeclared identifier
+c:\users\almaz\desktop\новая папка (2)\win32project1\win32project1\source.cpp(72): error C2664: 'LPWSTR lstrcpyW(LPWSTR,LPCWSTR)': cannot convert argument 1 from 'char [100]' to 'LPWSTR'
+  c:\users\almaz\desktop\новая папка (2)\win32project1\win32project1\source.cpp(72): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\almaz\desktop\новая папка (2)\win32project1\win32project1\source.cpp(78): error C2664: 'LPWSTR lstrcpyW(LPWSTR,LPCWSTR)': cannot convert argument 1 from 'char [100]' to 'LPWSTR'
+  c:\users\almaz\desktop\новая папка (2)\win32project1\win32project1\source.cpp(78): note: Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or function-style cast
+c:\users\almaz\desktop\новая папка (2)\win32project1\win32project1\source.cpp(81): error C2065: 'IDM_START2': undeclared identifier
+c:\users\almaz\desktop\новая папка (2)\win32project1\win32project1\source.cpp(87): error C2065: 'IDM_STOP2': undeclared identifier
+c:\users\almaz\desktop\новая папка (2)\win32project1\win32project1\source.cpp(94): error C2065: 'IDM_EXIT': undeclared identifier

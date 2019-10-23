@@ -1,0 +1,157 @@
+#include "windows.h"
+/* объявление функции окна       */
+LRESULT CALLBACK WindowFunc(HWND, UINT, WPARAM, LPARAM);
+char szWinName[] = "Lab4Group4233Var22Dallas";           // Имя "класса" окна 			
+														 /*       Главная функция          */
+int x = -1, y = -1;
+int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst,
+	LPSTR lpszArgs, int nWinMode)
+{
+	HWND hWnd;                          // дескриптор окна  
+	MSG msg;                            // сообщение        
+	WNDCLASSEX wcl;                     // "класс" окна     							/*  Определение "класса" (стиля) окна */
+	wcl.hInstance = hThisInst; /*дескриптор данного экземпляра*/
+	wcl.lpszClassName = (LPCWSTR)szWinName;   // имя "класса" окна  
+	wcl.lpfnWndProc = WindowFunc;       // функция окна
+	wcl.style = 0;                      // стиль по умолчанию
+	wcl.cbSize = sizeof(WNDCLASSEX);    // размер структуры
+	wcl.hIcon = LoadIcon(NULL, IDI_EXCLAMATION); //больш.иконка
+	wcl.hIconSm = LoadIcon(NULL, IDI_APPLICATION); // малая иконка
+	wcl.hCursor = LoadCursor(NULL, IDC_APPSTARTING); //форма курсора
+	wcl.lpszMenuName = NULL;      // меню не используется
+	wcl.cbClsExtra = 0;           // дополнит. информации нет
+	wcl.cbWndExtra = 0;
+	/* Фон окна задается белым   */
+	wcl.hbrBackground = (HBRUSH)GetStockObject(GRAY_BRUSH);
+	/* Регистрация "класса" окна */
+	if (!RegisterClassEx(&wcl))  return 0;
+	/*     Создание окна         */
+	hWnd = CreateWindowEx
+	(0, (LPCWSTR)szWinName,      	// имя "класса" окна
+		(LPCWSTR)"Videneeva Yulia 4233", 			// заголовок
+		WS_OVERLAPPED | WS_SYSMENU,   // стандартное окно
+		100,         // координата Х - по умолчанию
+		100,         // координата Y - по умолчанию
+		1024,         // ширина       - по умолчанию
+		512,         // высота       - по умолчанию
+		HWND_DESKTOP,          // родительского окна нет
+		NULL,                  // меню нет  
+		hThisInst, // дескриптор данного экземпляра приложения
+		NULL                  // дополнительных аргументов нет
+	);
+	/*     Отображение окна       */
+	ShowWindow(hWnd, nWinMode);
+	/*     Цикл сообщений        */
+	while (GetMessage(&msg, NULL, 0, 0))
+	{
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+	return msg.wParam;
+}
+/*---------------------------------------------*/
+/*               Функция  окна                 */
+/*---------------------------------------------*/
+/* Эту функцию вызывает Windows и передает ей  */
+/* на обработку сообщения из очереди сообщений */
+/*---------------------------------------------*/
+HDC hdc, memdc;
+HBITMAP hbit;
+HPEN hBluepen, hGreenpen;
+HWND hWnd;
+int xPosR, yPosR, a = 0, z = 10;
+LRESULT CALLBACK WindowFunc(HWND hWnd, UINT message,
+	WPARAM wParam, LPARAM lParam)
+{
+	char str[50] = "Показать координаты?";
+	int xPosR, yPosR, maxX, maxY;
+	PAINTSTRUCT paintstruct;
+	switch (message)
+	{
+
+	case WM_CREATE:
+	{
+		maxX = GetSystemMetrics(SM_CXSCREEN);
+		maxY = GetSystemMetrics(SM_CXSCREEN);
+		hdc = GetDC(hWnd);
+		memdc = CreateCompatibleDC(hdc);
+		hbit = CreateCompatibleBitmap(hdc, maxX, maxY);
+		SelectObject(memdc, hbit);
+		hBluepen = CreatePen(PS_SOLID, 2, RGB(0, 0, 255));
+		hGreenpen = CreatePen(PS_SOLID, 4, RGB(0, 255, 0));
+		PatBlt(memdc, 0, 0, maxX, maxY, PATCOPY);
+		ReleaseDC(hWnd, hdc);
+		break;
+	}
+
+	case WM_DESTROY:         /* "завершить программу" */
+	{
+		DeleteObject(hBluepen);
+		DeleteObject(hGreenpen);
+		DeleteObject(hbit);
+		DeleteDC(memdc);
+		PostQuitMessage(0);
+		break;
+	}
+
+	case WM_LBUTTONDOWN:
+	{
+		z = z - 5;
+		InvalidateRect(hWnd, NULL, 1);
+		break;
+	}
+
+	case WM_RBUTTONDOWN:
+	{
+		z = z + 5;
+		xPosR = LOWORD(lParam);
+		yPosR = HIWORD(lParam);
+		SetTextColor(memdc, RGB(200, 200, 200));
+		SetBkColor(memdc, RGB(120, 120, 120));
+		a++;
+		char b[15];
+		int c = wsprintf((LPWSTR)b, (LPCWSTR)"%d", a);
+		TextOut(memdc, xPosR, yPosR, (LPCWSTR)b, c);
+		MoveToEx(memdc, 0, 0, NULL);
+		SelectObject(memdc, hGreenpen);
+		LineTo(memdc, xPosR, yPosR);
+		if (a>1)
+		{
+			SelectObject(memdc, hBluepen);
+			LineTo(memdc, x, y);
+		}
+		InvalidateRect(hWnd, NULL, 0);
+		x = xPosR;
+		y = yPosR;
+		break;
+	}
+
+	case WM_PAINT:
+	{
+		hdc = BeginPaint(hWnd, &paintstruct);
+		BitBlt(hdc, paintstruct.rcPaint.left, paintstruct.rcPaint.top, paintstruct.rcPaint.right - paintstruct.rcPaint.left, paintstruct.rcPaint.bottom - paintstruct.rcPaint.top, memdc, paintstruct.rcPaint.left, paintstruct.rcPaint.top, SRCCOPY);
+		HBRUSH hbrush_1 = CreateSolidBrush(RGB(123, 123, 123));
+		HBRUSH hbrush_2 = CreateSolidBrush(RGB(23, 255, 0));
+		SelectObject(hdc, hGreenpen);
+		SelectObject(hdc, hbrush_1);
+		Rectangle(hdc, z, 15, z + 50, 50);
+		SelectObject(hdc, hBluepen);
+		SelectObject(hdc, hbrush_2);
+		Ellipse(hdc, z, 15, z + 25, 35);
+		DeleteObject(hbrush_1);
+		DeleteObject(hbrush_2);
+		EndPaint(hWnd, &paintstruct);
+		break;
+	}
+
+	default:
+
+
+
+
+		/* Остальные сообщения обрабатывать  */
+		/* операционной системе              */
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
+}

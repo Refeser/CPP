@@ -1,0 +1,4 @@
+﻿  main.cpp
+c:\users\almaz\desktop\4courseprogrs\zmeika\zmeika\main.cpp(132): warning C4553: '==': operator has no effect; did you intend '='?
+  Zmeika.vcxproj -> C:\Users\almaz\Desktop\4courseProgrs\Zmeika\Debug\Zmeika.exe
+  Zmeika.vcxproj -> C:\Users\almaz\Desktop\4courseProgrs\Zmeika\Debug\Zmeika.pdb (Full PDB)

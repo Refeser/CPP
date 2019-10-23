@@ -1,0 +1,123 @@
+Дана строка символов. Признак конца строки — символ «\n» (перевод строки). Строка состоит из слов, разделенных пробелами.
+Вывести самое короткое слово и его длину.
+#include <iostream>
+#include <stdio.h>
+#define N 100
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL,"Rus");
+    int i=0, sltek=0,slmin=0;
+    char sl;
+    char S[N], SMin[N];
+    cout<<"Введите текст"<<endl;
+    sl=cin.get();
+    while(sl!='\n')
+    {
+        while(sl==' '&&sl!='\n')
+        {
+            sl=cin.get();
+        }
+        while(sl!=' '&&sl!='\n')
+        {
+            S[i++]=sl;
+            sltek++;
+            sl=cin.get();
+        }
+        if(slmin==0)
+        {
+            slmin=sltek;
+            for(i=0;i<sltek;i++)
+                SMin[i]=S[i];
+        }
+        if(sltek<slmin)
+        {
+            for(i=0;i<sltek;i++)
+                SMin[i]=S[i];
+            slmin=sltek;
+        }
+        i=0;
+        sltek=0;
+    }
+    SMin[slmin]='\0';
+    cout<<"В самом маленьком слове "<<slmin<<" букв"<<endl<<"Вот это слово:"<<SMin<<endl;
+    getchar();
+    return 0;
+}
+
+----------------------------------------------------------------------------------------------------
+Дан массив, состоящий из n целых чисел (n<=10). Необходимо Упорядочить массив по убыванию элементов методом последовательного нахождения минимума.
+
+
+#include <iostream>
+#include <stdlib.h>
+#define N 10
+using namespace std;
+int main()
+{
+	  int n,i,c[N],k,j,min;
+	  cout <<"Vvedite n<=10:"<<endl;
+	  cin>>n;
+	  for (i=0;i<n;i++)
+	  {
+		  cin>>k;
+		  c[i]=k;
+	  }
+	  i=0;
+	  min=c[i];
+	  j=n;
+	  while (j!=0)
+	  {
+		  for(i=0;i<j;i++)
+		  {
+			  if(c[i]<c[j])
+			  {
+				  min=c[i];
+				  c[i]=c[j];
+				  c[j]=min;
+			  }
+		  }
+		  j--;
+	  }
+	  c[j]='\0';
+	  for(j=0;j<n;j++)
+	  {
+		  cout<<c[j];
+	  }
+	  system ("pause");
+	  return 0;
+}
+
+--------------------------------------------------------------------------------------------------------------------
+Дана строка длиной не более 80 символов, оканчивающаяся точкой. Необходимо подчеркнуть все гласные буквы в строке.
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+int main()
+{
+    int i;
+	char a1[10],a2[10];
+	for(i = 0;i<10;i++)
+	{
+		a1[i]=cin.get();
+		if(a1[i]=='a'||a1[i]=='e'||a1[i]=='i'||a1[i]=='o'||a1[i]=='u'||a1[i]=='y'){
+			a2[i]='_';
+		} else {
+			a2[i]=' ';
+		}
+	}
+	for(i = 0;i<10;i++)
+	{
+		cout<<a1[i];
+	}
+	cout<<' '<<endl;
+	for(i = 0;i<10;i++)
+	{
+		cout<<a2[i];
+	}
+	system("pause");
+	return 0;
+}
+

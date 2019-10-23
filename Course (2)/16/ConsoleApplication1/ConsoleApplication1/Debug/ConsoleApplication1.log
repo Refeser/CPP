@@ -1,0 +1,136 @@
+﻿  Source.cpp
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): error C2143: syntax error: missing ';' before '*'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(11): error C2872: 'string': ambiguous symbol
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): note: could be 'int string'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2634): note: or       'std::string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(11): error C3646: 'num': unknown override specifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(11): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(12): error C2872: 'string': ambiguous symbol
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): note: could be 'int string'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2634): note: or       'std::string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(12): error C3646: 'gorod': unknown override specifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(12): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(13): error C2872: 'string': ambiguous symbol
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): note: could be 'int string'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2634): note: or       'std::string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(13): error C3646: 'otpravka': unknown override specifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(14): error C2872: 'string': ambiguous symbol
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): note: could be 'int string'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2634): note: or       'std::string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(14): error C3646: 'pribitie': unknown override specifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(15): error C2872: 'string': ambiguous symbol
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): note: could be 'int string'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2634): note: or       'std::string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(15): error C3646: 'bilet': unknown override specifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(18): error C2872: 'string': ambiguous symbol
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): note: could be 'int string'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2634): note: or       'std::string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(18): error C2061: syntax error: identifier 'string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(19): error C2872: 'string': ambiguous symbol
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): note: could be 'int string'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2634): note: or       'std::string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(19): error C2061: syntax error: identifier 'string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(27): error C2872: 'string': ambiguous symbol
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): note: could be 'int string'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2634): note: or       'std::string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(27): error C2146: syntax error: missing ';' before identifier 'sl1'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(27): error C2065: 'sl1': undeclared identifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(27): error C2065: 't_id': undeclared identifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(43): error C2039: 'num': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(43): error C2672: 'getline': no matching overloaded function found
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(43): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_istream<_Elem,_Traits> &' from 'std::ifstream'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(157): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(43): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &' from 'char'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(157): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(43): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(146): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(43): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_istream<_Elem,_Traits> &&' from 'std::ifstream'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(126): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(43): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &' from 'char'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(126): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(43): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(73): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(46): error C2039: 'num': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(47): error C2065: 'sl1': undeclared identifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(48): error C2039: 'num': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(48): error C2065: 'sl1': undeclared identifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(50): error C2039: 'gorod': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(50): error C2039: 'otpravka': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(50): error C2039: 'pribitie': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(52): error C2039: 'bilet': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(52): error C2672: 'getline': no matching overloaded function found
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(52): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_istream<_Elem,_Traits> &' from 'std::ifstream'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(157): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(52): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &' from 'char'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(157): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(52): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(146): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(52): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_istream<_Elem,_Traits> &&' from 'std::ifstream'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(126): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(52): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &' from 'char'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(126): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(52): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(73): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(53): error C2039: 'num': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(53): error C2039: 'gorod': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(53): error C2039: 'otpravka': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(53): error C2039: 'pribitie': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(53): error C2039: 'bilet': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(69): error C2660: 'inf_gorod': function does not take 3 arguments
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(70): error C2660: 'kolvo_biletov': function does not take 3 arguments
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(88): error C2872: 'string': ambiguous symbol
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): note: could be 'int string'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2634): note: or       'std::string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(88): error C2061: syntax error: identifier 'string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(94): error C2672: 'getline': no matching overloaded function found
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(94): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &' from 'int'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(157): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(94): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(146): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(94): error C2784: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &)': could not deduce template argument for 'std::basic_string<_Elem,_Traits,_Alloc> &' from 'int'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(126): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(94): error C2780: 'std::basic_istream<_Elem,_Traits> &std::getline(std::basic_istream<_Elem,_Traits> &&,std::basic_string<_Elem,_Traits,_Alloc> &,const _Elem)': expects 3 arguments - 2 provided
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\string(73): note: see declaration of 'std::getline'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(97): error C2039: 'gorod': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(106): error C2039: 'num': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(106): error C2039: 'otpravka': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(106): error C2039: 'pribitie': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(106): error C2039: 'bilet': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(115): error C2872: 'string': ambiguous symbol
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): note: could be 'int string'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2634): note: or       'std::string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(115): error C2061: syntax error: identifier 'string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(117): error C2872: 'string': ambiguous symbol
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(6): note: could be 'int string'
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\xstring(2634): note: or       'std::string'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(117): error C2146: syntax error: missing ';' before identifier 'nomer'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(117): error C2065: 'nomer': undeclared identifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(120): error C2065: 'nomer': undeclared identifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(123): error C2039: 'num': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(123): error C2065: 'nomer': undeclared identifier
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(125): error C2039: 'gorod': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'
+c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(128): error C2039: 'bilet': is not a member of 'plane'
+  c:\users\almaz\desktop\учеба\оп\курсачи\16_sasha_pavl\consoleapplication1\consoleapplication1\source.cpp(10): note: see declaration of 'plane'

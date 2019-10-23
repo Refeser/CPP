@@ -1,0 +1,178 @@
+#include "windows.h"
+#include "resource.h"
+
+LRESULT CALLBACK WindowFunc(HWND, UINT, WPARAM, LPARAM);
+
+HINSTANCE hInstance;    // дескриптор приложения
+HWND BtHWnd, BtHWnd2;            //    кнопка
+HWND EdtHWnd, EdtHWnd2;            //    редактор
+char szWinName[] = "MyWin";    // имя класса окна
+char name[] = "Газизова Гульнур 4233";
+							   /*             Главная функция                     */
+int WINAPI WinMain(HINSTANCE hThisInst, HINSTANCE hPrevInst, LPSTR lpszArgs, int nWinMode) {
+	HWND hWnd;
+	MSG msg;
+	WNDCLASSEX wcl;
+	wcl.hInstance = hThisInst;
+	wcl.lpszClassName = (LPCWSTR)szWinName;
+	wcl.lpfnWndProc = WindowFunc;
+	wcl.style = 0;
+	wcl.cbSize = sizeof(WNDCLASSEX);
+	wcl.hIcon = LoadIcon(NULL, IDI_APPLICATION);
+	wcl.hIconSm = LoadIcon(NULL, IDI_WINLOGO);
+	wcl.hCursor = LoadCursor(NULL, IDC_ARROW);
+	wcl.lpszMenuName = MAKEINTRESOURCE(IDR_MENU1);
+	wcl.cbClsExtra = 0;
+	wcl.cbWndExtra = 0;
+	wcl.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
+	if (!RegisterClassEx(&wcl)) return 0;
+	hWnd = CreateWindow(
+		(LPCWSTR)szWinName,
+		(LPCWSTR)name, // заголовок
+		WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT, CW_USEDEFAULT,
+		CW_USEDEFAULT, CW_USEDEFAULT,
+		HWND_DESKTOP, NULL, hThisInst, NULL);
+	/* запоминаем дескриптор приложения
+	для создания дочерних элементов управления */
+	hInstance = hThisInst;
+	ShowWindow(hWnd, nWinMode);
+	UpdateWindow(hWnd);
+	while (GetMessage(&msg, NULL, 0, 0)) {
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+	return msg.wParam;
+}
+
+/*                 Функция окна                */
+LRESULT CALLBACK WindowFunc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+	char msg[100];
+	int r;
+	switch (message) {
+	case WM_DESTROY:            // завершение программы
+		PostQuitMessage(0);
+		break;
+		/* сообщение от пунктов меню и элементов управления */
+	case WM_COMMAND:
+		if (LOWORD(wParam) == IDM_START) //пункт меню - Start
+		{
+			MessageBoxA(hWnd, "Timer started",
+				"Generation started", MB_OK);
+			SetTimer(hWnd, 1, 1000, NULL); // установка таймера
+		}
+		if (LOWORD(wParam) == IDM_STOP) // пункт меню - Stop
+		{
+			MessageBoxA(hWnd, "Timer stoped",
+				"Generation stopped", MB_OK);
+			KillTimer(hWnd, 1); // завершение работы таймера
+		}
+		if (HWND(lParam) == BtHWnd) // сообщение от кнопки
+		{
+			lstrcpy(msg, "0");
+			/* помещение текста в поле ввода      		*/
+			SendMessage(EdtHWnd, WM_SETTEXT, 0, (LPARAM)(LPCTSTR)msg);
+		}
+		if (HWND(lParam) == BtHWnd2)
+		{
+			lstrcpy(msg, "0");
+			SendMessage(EdtHWnd2, WM_SETTEXT, 0, (LPARAM) "");
+		}
+		if (LOWORD(wParam) == IDM_START2)
+		{
+			MessageBoxA(hWnd, "Timer started",
+				"Generation started", MB_OK);
+			SetTimer(hWnd, 2, 2000, NULL);
+		}
+		if (LOWORD(wParam) == IDM_STOP2)
+		{
+			MessageBoxA(hWnd, "Timer stoped",
+				"Generation stopped", MB_OK);
+			KillTimer(hWnd, 2);
+		}
+
+		if (LOWORD(wParam) == IDM_EXIT)
+			DestroyWindow(hWnd);
+		break;
+
+	case WM_TIMER:            // сообщение от таймера
+		switch (wParam)
+		{
+		case 1:
+		{
+			int k;
+			r = rand() % 20;
+			/* получение длины текста в поле ввода 		*/
+			k = SendMessage(EdtHWnd, WM_GETTEXTLENGTH, 0, 0);
+			/* получение текста из поля ввода 			*/
+			SendMessage(EdtHWnd, WM_GETTEXT, k + 1, (LPARAM)msg);
+			/* перевод значения из строки в число и суммирование*/
+			r += atoi(msg);
+			/* перевод из числа в строку				*/
+			wsprintfA(msg, "%d", r);
+			/* помещение текста в поле ввода 			*/
+			SendMessage(EdtHWnd, WM_SETTEXT, 0, (LPARAM)(LPCTSTR)msg);
+			break;
+		}
+		case 2:
+		{
+			int k;
+			k = SendMessage(EdtHWnd, WM_GETTEXTLENGTH, 0, 0);
+			SendMessage(EdtHWnd, WM_GETTEXT, k + 1, (LPARAM)msg);
+			r = atoi(msg);
+			wsprintfA(msg, "Timer %d", r);
+			SendMessage(EdtHWnd2, WM_SETTEXT, 0, (LPARAM)(LPCTSTR)msg);
+			break;
+		}
+
+		}
+		break;
+
+	case WM_CREATE:            // сообщение о создании окна
+							   /*                   создание кнопки         	*/
+		BtHWnd = CreateWindow(
+			(LPCWSTR)"BUTTON",            // имя класса окна
+			(LPCWSTR)"Reset",                // заголовок
+			WS_CHILD | WS_VISIBLE | WS_BORDER,    // стиль
+			5, 10, 50, 40,        // координаты и размеры
+			hWnd,            // дескриптор родительского окна
+			NULL,            // меню нет
+			hInstance,        // дескриптор приложения
+			NULL);
+
+		/*        создание редактора(поля ввода)     	*/
+		EdtHWnd = CreateWindow(
+			(LPCWSTR)"EDIT",                // имя класса окна
+			(LPCWSTR)"0",                // заголовок
+			WS_CHILD | WS_VISIBLE | WS_BORDER | WS_THICKFRAME,
+			60, 10, 70, 70,        // координаты и размеры
+			hWnd,            // дескриптор родительского окна
+			NULL,            // меню нет
+			hInstance,        // дескриптор приложения
+			NULL);
+
+		BtHWnd2 = CreateWindow(
+			(LPCWSTR)"BUTTON",
+			(LPCWSTR)"Reset2",
+			WS_CHILD | WS_VISIBLE | WS_BORDER,
+			5, 100, 50, 40,
+			hWnd,
+			NULL,
+			hInstance,
+			NULL),
+
+			EdtHWnd2 = CreateWindow(
+				(LPCWSTR)"EDIT",
+				(LPCWSTR)"",
+				WS_CHILD | WS_VISIBLE | WS_BORDER | WS_THICKFRAME,
+				60, 100, 70, 70,
+				hWnd,
+				NULL,
+				hInstance,
+				NULL);
+
+	default:
+		return DefWindowProc(hWnd, message, wParam, lParam);
+	}
+	return 0;
+}

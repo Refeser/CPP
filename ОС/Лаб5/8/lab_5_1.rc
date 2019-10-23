@@ -1,0 +1,9 @@
+#include "resource.h"
+IDR_MENU1 MENU  
+BEGIN
+    POPUP "Generator"
+    BEGIN
+        MENUITEM "Start", IDM_START
+        MENUITEM "Stop",  IDM_STOP
+    END
+END
